@@ -645,7 +645,7 @@ int getCost(int cardNumber)
 
 
 int adventurer(int card, int choice1, int choice2, int choice3, struct gameState *state, int handPos, int *bonus){
-	while(drawntreasure<2){
+	while(drawntreasure<3){
 	if (state->deckCount[currentPlayer] <1){//if the deck is empty we need to shuffle discard and add to deck
 	  shuffle(currentPlayer, state);
 	}
@@ -668,7 +668,7 @@ int adventurer(int card, int choice1, int choice2, int choice3, struct gameState
 
 int smithy(int card, int choice1, int choice2, int choice3, struct gameState *state, int handPos, int *bonus){
       //+3 Cards
-      for (i = 0; i < 3; i++)
+      for (i = 0; i < 4; i++)
 	{
 	  drawCard(currentPlayer, state);
 	}
@@ -679,58 +679,8 @@ int smithy(int card, int choice1, int choice2, int choice3, struct gameState *st
 
 }
 
-int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState *state, int handPos, int *bonus)
-{
-  int i;
-  int j;
-  int k;
-  int x;
-  int index;
-  int currentPlayer = whoseTurn(state);
-  int nextPlayer = currentPlayer + 1;
-
-  int tributeRevealedCards[2] = {-1, -1};
-  int temphand[MAX_HAND];// moved above the if statement
-  int drawntreasure=0;
-  int cardDrawn;
-  int z = 0;// this is the counter for the temp hand
-  if (nextPlayer > (state->numPlayers - 1)){
-    nextPlayer = 0;
-  }
-  
-	
-  //uses switch to select card and perform actions
-  switch( card ) 
-    {
-    case adventurer:
-      return adventurer(card, choice1, choice2, choice3, state, handPos, bonus);
-			
-    case council_room:
-      //+4 Cards
-      for (i = 0; i < 4; i++)
-	{
-	  drawCard(currentPlayer, state);
-	}
-			
-      //+1 Buy
-      state->numBuys++;
-			
-      //Each other player draws a card
-      for (i = 0; i < state->numPlayers; i++)
-	{
-	  if ( i != currentPlayer )
-	    {
-	      drawCard(i, state);
-	    }
-	}
-			
-      //put played card in played card pile
-      discardCard(handPos, currentPlayer, state, 0);
-			
-      return 0;
-			
-    case feast:
-      //gain card with cost up to 5
+int feast(int card, int choice1, int choice2, int choice3, struct gameState *state, int handPos, int *bonus){
+	//gain card with cost up to 5
       //Backup hand
       for (i = 0; i <= state->handCount[currentPlayer]; i++){
 	temphand[i] = state->hand[currentPlayer][i];//Backup card
@@ -781,16 +731,39 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
       //Reset Hand
       			
       return 0;
+}
+
+int council_room(int card, int choice1, int choice2, int choice3, struct gameState *state, int handPos, int *bonus){
+	//+4 Cards
+      for (i = 0; i < 4; i++)
+	{
+	  drawCard(currentPlayer, state);
+	}
 			
-    case gardens:
-      return -1;
+      //+1 Buy
+      state->numBuys++;
 			
-    case mine:
-      j = state->hand[currentPlayer][choice1];  //store card we will trash
+      //Each other player draws a card
+      for (i = 1; i < state->numPlayers; i++)
+	{
+	  if ( i != currentPlayer )
+	    {
+	      drawCard(i, state);
+	    }
+	}
+			
+      //put played card in played card pile
+      discardCard(handPos, currentPlayer, state, 0);
+			
+      return 0;
+}
+
+int mine(int card, int choice1, int choice2, int choice3, struct gameState *state, int handPos, int *bonus){
+	      j = state->hand[currentPlayer][choice1];  //store card we will trash
 
       if (state->hand[currentPlayer][choice1] < copper || state->hand[currentPlayer][choice1] > gold)
 	{
-	  return -1;
+	  return 0;
 	}
 		
       if (choice2 > treasure_map || choice2 < curse)
@@ -819,6 +792,45 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
 	}
 			
       return 0;
+}
+
+int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState *state, int handPos, int *bonus)
+{
+  int i;
+  int j;
+  int k;
+  int x;
+  int index;
+  int currentPlayer = whoseTurn(state);
+  int nextPlayer = currentPlayer + 1;
+
+  int tributeRevealedCards[2] = {-1, -1};
+  int temphand[MAX_HAND];// moved above the if statement
+  int drawntreasure=0;
+  int cardDrawn;
+  int z = 0;// this is the counter for the temp hand
+  if (nextPlayer > (state->numPlayers - 1)){
+    nextPlayer = 0;
+  }
+  
+	
+  //uses switch to select card and perform actions
+  switch( card ) 
+    {
+    case adventurer:
+      return adventurer(card, choice1, choice2, choice3, state, handPos, bonus);
+			
+    case council_room:
+    	return council_room(card, choice1, choice2, choice3, state, handPos, bonus);
+			
+    case feast:
+    	return feast(card, choice1, choice2, choice3, state, handPos, bonus);
+			
+    case gardens:
+      return -1;
+			
+    case mine:
+    	return mine(card, choice1, choice2, choice3, state, handPos, bonus);
 			
     case remodel:
       j = state->hand[currentPlayer][choice1];  //store card we will trash
