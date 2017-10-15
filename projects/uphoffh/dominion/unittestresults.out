@@ -1,0 +1,114 @@
+Result for running dominion.c tests:
+
+>>>>> unittest1.c: <<<<<
+
+--------TESTING int shuffle(int player, struct gameState *state);-------------
+
+Contents of deck Before Shuffle = 1 1 4 4 4 7 9 14 17 11 , expected to != 1 1 7 17 9 4 11 14 4 4  (the contents after shuffle)
+Size of deck before shuffle = 10, expected = 10
+Size of deck after shuffle = 10, expected = 10
+Contents of deck before shuffle SORTED = 1 1 4 4 4 7 9 11 14 17 , expected to = 1 1 4 4 4 7 9 11 14 17  (the contents after shuffle SORTED)
+
+--------SUCCESS: Testing complete-------------
+
+File 'dominion.c'
+Lines executed:16.06% of 548
+Branches executed:15.35% of 417
+Taken at least once:12.47% of 417
+Calls executed:7.78% of 90
+Creating 'dominion.c.gcov'
+
+
+>>>>> unittest2.c: <<<<<
+
+--------TESTING int gainCard(int supplyPos, struct gameState *state, int toFlag, int player);-------------
+
+Size of deck after gaining card = 6, expected = 6
+Last card of deck after gaining card = 7, expected = 7
+Supply of card added = 9, expected = 9
+Size of discard after gaining card = 1, expected = 1
+Last card of discard after gaining card = 8, expected = 8
+Supply of card added = 9, expected = 9
+Size of hand after gaining card = 1, expected = 1
+Last card of hand after gaining card = 14, expected = 14
+Supply of card added = 9, expected = 9
+Return value if card supply is empty = -1, expected = -1
+
+--------SUCCESS: Testing complete-------------
+
+File 'dominion.c'
+Lines executed:18.61% of 548
+Branches executed:16.79% of 417
+Taken at least once:13.67% of 417
+Calls executed:8.89% of 90
+Creating 'dominion.c.gcov'
+
+
+>>>>> unittest3.c: <<<<<
+
+--------TESTING int getCost(int cardNumber) -------------
+
+Cost of curse = 0, expected = 0
+Cost of estate = 2, expected = 2
+Cost of duchy = 5, expected = 5
+Cost of province = 8, expected = 8
+Cost of copper = 0, expected = 0
+Cost of silver = 3, expected = 3
+Cost of gold = 6, expected = 6
+Cost of adventurer = 6, expected = 6
+Cost of council_room = 5, expected = 5
+Cost of feast = 4, expected = 4
+Cost of gardens = 4, expected = 4
+Cost of mine = 5, expected = 5
+Cost of remodel = 4, expected = 4
+Cost of smithy = 4, expected = 4
+Cost of village = 3, expected = 3
+Cost of baron = 4, expected = 4
+Cost of great_hall = 3, expected = 3
+Cost of minion = 5, expected = 5
+Cost of steward = 3, expected = 3
+Cost of tribute = 5, expected = 5
+Cost of ambassador = 3, expected = 3
+Cost of cutpurse = 4, expected = 4
+Cost of embargo = 2, expected = 2
+Cost of outpost = 5, expected = 5
+Cost of salvager = 4, expected = 4
+Cost of sea_hag = 4, expected = 4
+Cost of treasure_map = 4, expected = 4
+
+--------SUCCESS: Testing complete-------------
+
+File 'dominion.c'
+Lines executed:21.17% of 548
+Branches executed:22.06% of 417
+Taken at least once:18.71% of 417
+Calls executed:7.78% of 90
+Creating 'dominion.c.gcov'
+
+
+>>>>> unittest4.c: <<<<<
+
+--------TESTING int drawCard(int player, struct gameState *state);-------------
+
+>>>>> test draw card when deck is full
+Handcount = 6, expected = 6
+Deckcount = 4, expected = 4
+Card added to hand = 4, expected = 4
+>>>>> test draw card when deck has one card
+Handcount = 10, expected = 10
+Deckcount = 0, expected = 0
+Card added to hand = 4, expected = 4
+>>>>> test draw card when deck has zero cards
+Handcount = 1, expected = 1
+Deckcount = 9, expected = 9
+
+--------SUCCESS: Testing complete-------------
+
+File 'dominion.c'
+Lines executed:15.88% of 548
+Branches executed:15.35% of 417
+Taken at least once:12.23% of 417
+Calls executed:7.78% of 90
+Creating 'dominion.c.gcov'
+
+

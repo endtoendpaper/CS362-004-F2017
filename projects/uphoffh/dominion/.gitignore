@@ -1,6 +1,6 @@
-.o
-.gcno
-.gcov
+*.o
+*.gcno
+*.gcov
 badTestDrawCard
 playdom
 player
