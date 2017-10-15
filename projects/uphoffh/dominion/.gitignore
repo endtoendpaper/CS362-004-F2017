@@ -1,6 +1,8 @@
 *.o
 *.gcno
 *.gcov
+*.gcda
+unittestresults.out
 badTestDrawCard
 playdom
 player
