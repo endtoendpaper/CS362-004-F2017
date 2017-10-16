@@ -21,7 +21,7 @@ int main() {
 	int k[10] = {adventurer, feast, village, minion, mine, cutpurse, sea_hag, tribute, smithy, council_room};
 	
 	// initialize a game state and player cards
-	initializeGame(numPlayers, k, seed, &game);
+	initializeGame(numPlayers, k, seed, &game); 
 	
 	printf("--------TESTING int drawCard(int player, struct gameState *state);-------------\n\n");
 	
