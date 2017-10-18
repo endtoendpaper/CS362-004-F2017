@@ -95,7 +95,7 @@ unittestresults.out: unittest1.c unittest2.c unittest3.c unittest4.c cardtest1.c
 	
 	echo ">>>>> cardtest4.c: <<<<<" >> unittestresults.out
 	echo "" >> unittestresults.out
-	gcc -o cardtest4 -g cardtest1.c dominion.c rngs.c $(CFLAGS)
+	gcc -o cardtest4 -g cardtest4.c dominion.c rngs.c $(CFLAGS)
 	cardtest4 >> unittestresults.out
 	echo "" >> unittestresults.out 
 	gcov -b dominion.c >> unittestresults.out
