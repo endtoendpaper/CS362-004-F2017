@@ -5,14 +5,20 @@
 
 char inputChar()
 {
-    // TODO: rewrite this function
-    return ' ';
+    char randomletter = " abcdefghijklmnopqrstuvwxyz[](){}"[random () % 33];
+    return randomletter;
 }
 
 char *inputString()
 {
-    // TODO: rewrite this function
-    return "";
+    int LEN = 6; 
+    char text[LEN];
+    int i;
+	for (i = 0; i < LEN - 1; i++) {
+    	text[i] = " abcdefghijklmnopqrstuvwxyz[](){}"[random () % 33];
+	}
+	text[LEN-1] = 0;
+    return text;
 }
 
 void testme()
@@ -27,7 +33,6 @@ void testme()
     c = inputChar();
     s = inputString();
     printf("Iteration %d: c = %c, s = %s, state = %d\n", tcCount, c, s, state);
-
     if (c == '[' && state == 0) state = 1;
     if (c == '(' && state == 1) state = 2;
     if (c == '{' && state == 2) state = 3;
