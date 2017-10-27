@@ -70,11 +70,12 @@ int main() {
 	
 	//initialize static values of game
 	game.phase = 0;
-	game.numBuys = 1;
 	
 	//START RANDOM LOOPS
 	int j;
 	for(j = 0; j < 900000; j++){
+	
+		game.numBuys = 1;
 	
 		//set up random game
 		randomGenerator(&game);
