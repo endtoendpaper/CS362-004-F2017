@@ -2,6 +2,7 @@
 *.gcno
 *.gcov
 *.gcda
+randomtestadventurer.out
 randomtestcard1.out
 randomtestcard2.out
 randomtestresults.out
