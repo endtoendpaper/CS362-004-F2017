@@ -2,6 +2,9 @@
 *.gcno
 *.gcov
 *.gcda
+randomtestcard1.out
+randomtestcard2.out
+randomtestresults.out
 unittestresults.out
 badTestDrawCard
 playdom
@@ -15,4 +18,6 @@ cardtest1
 cardtest2
 cardtest3
 cardtest4
-
+randomtestadventurer
+randomtestcard1
+randomtestcard2

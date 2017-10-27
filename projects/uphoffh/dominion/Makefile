@@ -100,6 +100,33 @@ unittestresults.out: unittest1.c unittest2.c unittest3.c unittest4.c cardtest1.c
 	echo "" >> unittestresults.out 
 	gcov -b dominion.c >> unittestresults.out
 	echo "" >> unittestresults.out
+	
+randomtestadventurer.out: randomtestadventurer.c dominion.c rngs.c	
+	echo ">>>>> randomtestadventurer.c: <<<<<" >> randomtestadventurer.out
+	echo "" >> randomtestadventurer.out
+	gcc -o randomtestadventurer -g randomtestadventurer.c dominion.c rngs.c $(CFLAGS)
+	randomtestadventurer >> randomtestadventurer.out
+	echo "" >> randomtestadventurer.out
+	gcov -b dominion.c >> randomtestadventurer.out
+	echo "" >> randomtestadventurer.out
+	
+randomtestcard1.out: randomtestcard1.c dominion.c rngs.c	
+	echo ">>>>> randomtestcard1.c: <<<<<" >> randomtestcard1.out
+	echo "" >> randomtestcard1.out
+	gcc -o randomtestcard1 -g randomtestcard1.c dominion.c rngs.c $(CFLAGS)
+	randomtestcard1 >> randomtestcard1.out
+	echo "" >> randomtestcard1.out
+	gcov -b dominion.c >> randomtestcard1.out
+	echo "" >> randomtestcard1.out
+	
+randomtestcard2.out: randomtestcard2.c dominion.c rngs.c	
+	echo ">>>>> randomtestcard2.c: <<<<<" >> randomtestcard2.out
+	echo "" >> randomtestcard2.out
+	gcc -o randomtestcard2 -g randomtestcard2.c dominion.c rngs.c $(CFLAGS)
+	randomtestcard2 >> randomtestcard2.out
+	echo "" >> randomtestcard2.out
+	gcov -b dominion.c >> randomtestcard2.out
+	echo "" >> randomtestcard2.out
 
 all: playdom player testDrawCard testBuyCard badTestDrawCard unittestresults.out
 
