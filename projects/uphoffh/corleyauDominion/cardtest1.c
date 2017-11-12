@@ -4,19 +4,19 @@
 #include "dominion.h"
 #include "dominion_helpers.h"
 #include "rngs.h"
- 
+
 int compare_int( const void* a, const void* b )
 {
     if( *(int*)a == *(int*)b ) return 0;
     return *(int*)a < *(int*)b ? -1 : 1;
 } 
  
-int main() {  
+int main() { 
 	
 	int seed = 1000;
 	int numPlayers = 2;
 	
-	struct gameState game;
+	struct gameState game; 
 	 
 	int k[10] = {adventurer, feast, village, minion, mine, cutpurse, sea_hag, tribute, smithy, council_room};
 	

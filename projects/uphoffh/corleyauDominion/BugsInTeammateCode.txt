@@ -1,0 +1,28 @@
+Bug Report #1
+Title: Handcount after calling Smithy incorrect
+
+Description: After the smithy card is called, the handcount is expected to be plus 3 cards minus 1 for discarding smithy. When called on a player with a full deck, 1 extra card is called. When called on a player with an empty deck, the handcount is 3 less than expected.
+
+Severity: Will interrupt game play. Medium.
+
+Priority: Medium
+
+Date/Time: Sunday, November 12, 2:08PM
+
+Reported By: Heidi Uphoff
+
+
+
+
+Bug Report #2
+Title: Treasure cards in handcount incorrect after called adventurer 
+
+Description: After the adventurer card is called, the count of treasure cards is expected to be 2 more. When called on a player with a full deck, 4 treasure cards are added to the hand. When called on a player with an empty deck, no new treasure cards are added to the hand. 
+
+Severity: Will interrupt game play. Medium.
+
+Priority: Medium
+
+Date/Time: Sunday, November 12, 2:32PM
+
+Reported By: Heidi Uphoff
